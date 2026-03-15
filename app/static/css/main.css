@@ -220,30 +220,33 @@ body {
   animation: fadeIn var(--duration-mid) var(--ease-out-smooth) 1.8s forwards;
 }
 
-.hero__footer-nexttech {
-  margin: 1.25rem 0 0;
+.hero__social {
+  margin: 1rem 0 0;
   opacity: 0;
   animation: fadeIn var(--duration-mid) var(--ease-out-smooth) 1.95s forwards;
 }
 
-.nexttech-link {
+.hero__social-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  gap: 0.5rem;
   color: var(--river-silver);
   text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
   transition: color var(--duration-fast) var(--ease-out-smooth);
 }
 
-.nexttech-link:hover {
+.hero__social-link:hover {
   color: var(--wood-cream);
 }
 
-.nexttech-logo {
+.hero__social-icon {
   flex-shrink: 0;
-  opacity: 0.85;
+}
+
+.hero__social-label {
+  color: inherit;
 }
 
 @keyframes fadeIn {
@@ -261,7 +264,7 @@ body {
   .intro__cta,
   .hero__footer-line,
   .hero__footer-text,
-  .hero__footer-nexttech {
+  .hero__social {
     animation-duration: 0.01ms;
     animation-delay: 0s;
   }
