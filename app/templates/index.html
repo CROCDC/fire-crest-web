@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Open Graph — first in head for WhatsApp/social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ url_for('index', _external=True) }}" />
+  <meta property="og:title" content="Navegando por la Historia — Fire Crest" />
+  <meta property="og:description" content="Travesías por el Río de la Plata en el Fire Crest, velero de madera Light Crest de Frers. 70 años surcando el agua. Navegación y relato con un profesor de historia." />
+  <meta property="og:image" content="{{ url_for('static', filename='assets/og-image.jpg', _external=True) }}" />
+  <meta property="og:image:secure_url" content="{{ url_for('static', filename='assets/og-image.jpg', _external=True) }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fire Crest, velero de madera en el Río de la Plata — Navegando por la Historia" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Navegando por la Historia" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Navegando por la Historia — Fire Crest" />
+  <meta name="twitter:description" content="Travesías por el Río de la Plata en el Fire Crest, velero de madera Light Crest de Frers. Navegación y relato con un profesor de historia." />
+  <meta name="twitter:image" content="{{ url_for('static', filename='assets/og-image.jpg', _external=True) }}" />
+
+  <title>Navegando por la Historia — Fire Crest</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <div class="river-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="hero">
+    <header class="hero__header">
+      <p class="hero__label" data-animate>Río de la Plata</p>
+      <h1 class="hero__title" data-animate>
+        <span class="hero__title-line">Navegando por</span>
+        <span class="hero__title-line hero__title-line--accent">la Historia</span>
+      </h1>
+      <p class="hero__boat" data-animate>Fire Crest · 70 años en el Río de la Plata · velero de madera Light Crest de Frers</p>
+    </header>
+
+    <section class="intro">
+      <p class="intro__lead" data-animate>
+        El <em>Fire Crest</em> es una joya del Río de la Plata: 70 años surcando el agua, velero de madera Light Crest de Frers. Travesías con un profesor de historia a bordo —navegación y relato en una sola experiencia.
+      </p>
+      <p class="intro__text" data-animate>
+        En este sitio vas a encontrar las próximas salidas, crónicas de cada travesía y la historia del río contada desde cubierta. Un barco que ya es patrimonio del río y un relato que recorre el pasado: navegando por la historia en todos los sentidos.
+      </p>
+      <p class="intro__cta" data-animate>
+        Estamos preparando la próxima travesía. <strong>Vuelva pronto.</strong>
+      </p>
+    </section>
+
+    <footer class="hero__footer">
+      <span class="hero__footer-line" data-animate></span>
+      <p class="hero__footer-text" data-animate>Próximamente · Navegando por la Historia</p>
+      <p class="hero__footer-nexttech" data-animate>
+        <a href="https://nexttech.com.ar" target="_blank" rel="noopener noreferrer" class="nexttech-link">
+          <img src="https://nexttech.com.ar/static/assets/favicon.svg" alt="Next Tech" width="20" height="20" class="nexttech-logo">
+          Creado por Next Tech
+        </a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

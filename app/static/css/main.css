@@ -1,0 +1,273 @@
+/**
+ * Navegando por la Historia — Fire Crest
+ * Palette: wood (teak, oak, honey, cream) + river (Río de la Plata: brown-grey, warm slate).
+ * No blue: river as depth and reflection in warm, muddy tones.
+ */
+:root {
+  /* Wood — base and warmth */
+  --wood-teak: #2c2419;
+  --wood-deep: #3d3225;
+  --wood-mid: #4a3f32;
+  --wood-warm: #5c5042;
+  --wood-oak: #6b5d4f;
+  --wood-honey: #b8860b;
+  --wood-gold: #c9a227;
+  --wood-cream: #e8dfd0;
+  --wood-ivory: #f5f0e8;
+  /* River — Río de la Plata: brown-grey, slate, no blue */
+  --river-deep: #2a241c;
+  --river-mid: #3a3329;
+  --river-surface: #4a4338;
+  --river-silver: #7a7265;
+  --river-mist: #a89f92;
+  --river-foam: #c4bcb0;
+  /* Text */
+  --text-primary: #f5f0e8;
+  --text-muted: #b8ad9e;
+  --text-accent: #c9a227;
+  /* Motion */
+  --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-slow: 1.2s;
+  --duration-mid: 0.8s;
+  --duration-fast: 0.4s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--wood-teak);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* Background: wood + river (warm brown-grey gradient, no blue) */
+.river-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg,
+      var(--wood-teak) 0%,
+      var(--wood-deep) 20%,
+      var(--river-mid) 45%,
+      var(--wood-mid) 70%,
+      var(--wood-teak) 100%
+    );
+  animation: riverShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes riverShift {
+  0% { opacity: 1; filter: brightness(0.98); }
+  100% { opacity: 1; filter: brightness(1.02); }
+}
+
+/* Subtle grain overlay (wood / paper feel) */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Hero block */
+.hero {
+  max-width: 36rem;
+  width: 100%;
+  text-align: center;
+}
+
+.hero__header {
+  margin-bottom: clamp(2rem, 6vw, 3.5rem);
+}
+
+.hero__label {
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--river-mist);
+  margin: 0 0 0.75rem;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp var(--duration-slow) var(--ease-out-smooth) 0.2s forwards;
+}
+
+.hero__title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 8vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.hero__title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(1.2rem);
+  animation: fadeInUp var(--duration-slow) var(--ease-out-smooth) 0.4s forwards;
+}
+
+.hero__title-line--accent {
+  color: var(--wood-gold);
+  animation-delay: 0.55s;
+  animation-fill-mode: both;
+}
+
+.hero__boat {
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
+  font-style: italic;
+  color: var(--wood-cream);
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp var(--duration-mid) var(--ease-out-smooth) 0.85s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intro section */
+.intro {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+  text-align: left;
+}
+
+.intro__lead,
+.intro__text,
+.intro__cta {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(0.75rem);
+  animation: fadeInUp var(--duration-mid) var(--ease-out-smooth) forwards;
+}
+
+.intro__lead {
+  animation-delay: 1.05s;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.intro__lead em {
+  color: var(--wood-gold);
+  font-style: italic;
+}
+
+.intro__text {
+  animation-delay: 1.25s;
+}
+
+.intro__cta {
+  animation-delay: 1.45s;
+  margin-bottom: 0;
+}
+
+.intro__cta strong {
+  color: var(--wood-cream);
+  font-weight: 500;
+}
+
+/* Footer line + text */
+.hero__footer {
+  border-top: 1px solid rgba(201, 162, 39, 0.25);
+  padding-top: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+.hero__footer-line {
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(90deg, transparent, var(--wood-honey), transparent);
+  opacity: 0;
+  animation: fadeIn var(--duration-mid) var(--ease-out-smooth) 1.65s forwards;
+}
+
+.hero__footer-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--river-silver);
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn var(--duration-mid) var(--ease-out-smooth) 1.8s forwards;
+}
+
+.hero__footer-nexttech {
+  margin: 1.25rem 0 0;
+  opacity: 0;
+  animation: fadeIn var(--duration-mid) var(--ease-out-smooth) 1.95s forwards;
+}
+
+.nexttech-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--river-silver);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out-smooth);
+}
+
+.nexttech-link:hover {
+  color: var(--wood-cream);
+}
+
+.nexttech-logo {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .river-bg,
+  .hero__label,
+  .hero__title-line,
+  .hero__boat,
+  .intro__lead,
+  .intro__text,
+  .intro__cta,
+  .hero__footer-line,
+  .hero__footer-text,
+  .hero__footer-nexttech {
+    animation-duration: 0.01ms;
+    animation-delay: 0s;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+}

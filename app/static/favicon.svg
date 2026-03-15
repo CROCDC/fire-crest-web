@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="5" fill="#3d3225"/>
+  <!-- Sail: simple triangle (Fire Crest = sail + crest) -->
+  <path d="M16 8 L24 26 L8 26 Z" fill="#c9a227"/>
+  <!-- Crest / flame tip -->
+  <path d="M16 10 L18 16 L16 14 L14 16 Z" fill="#f5f0e8"/>
+</svg>
