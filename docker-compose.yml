@@ -9,9 +9,9 @@ services:
     container_name: fire-crest-web-app
     environment:
       - FLASK_APP=run.py
-      - VIRTUAL_HOST=firecrest.nexttech.com.ar
+      - VIRTUAL_HOST=firecrest.nexttech.com.ar,www.firecrest.nexttech.com.ar
       - VIRTUAL_PORT=7006
-      - LETSENCRYPT_HOST=firecrest.nexttech.com.ar
+      - LETSENCRYPT_HOST=firecrest.nexttech.com.ar,www.firecrest.nexttech.com.ar
       - LETSENCRYPT_EMAIL=admin@pantech.solutions
     ports:
       - "7006:7006"
